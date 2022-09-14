@@ -1,0 +1,60 @@
+#Ashab Naveed 
+#Computing Science 10
+#Chessboard
+#Henry Wise Wood High School
+#2021-22 Semester 1
+#October 16th , 2021
+
+import turtle
+t = turtle.Turtle()
+
+#makes the drawing move quicker for convinience
+t.speed (0)
+
+w = turtle.Screen()
+x = -(w.window_width()/2)
+y = w.window_height()/2
+
+
+#for controlling alternate colors
+a = 0 
+b = 0  
+
+t.penup()
+t.goto(x, y)
+t.pendown()
+
+for i in range(8): #for loop will run 8 times as there are 8 rows in the board
+    if(b == 0):
+        a=1
+    else:
+        a=0
+    d = x
+    for j in range(8): #draws the 8 columns of the board
+        t.penup()
+        t.goto(d , y)
+        t.pendown()
+        if(a==0):# uses a and b to alternate colours
+            t.fillcolor('#EEEED2')
+            a=1
+        else:
+            t.fillcolor('black')
+            a=0
+        t.begin_fill() #fills the squares based on  a and b
+        for k in range(4): #draws each square with 4 size, repeating 8 times for the rows (for j in range 8) which defined the total rows
+            t.forward(50)
+            t.right(90)
+        t.end_fill() #ends the colour filling
+
+        d += 50 #adds 50 to d/x to move the pen 50 pixels
+
+    if(b==0):
+        b=1
+    else:
+        b=0
+
+    y -= 50 #subtracts 50 from the y value to move the pen down to another row
+
+  
+    
+  
